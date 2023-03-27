@@ -57,10 +57,27 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
+    protected function validator(array $data)
+    {
+        // ↓(検証する配列値(名前),検証ルール)
+        return Validator::make($data, [
+            'over_name' => 'required|string|max:10',
+            'under_name' => 'required|string|max:10',
+            'over_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
+            'under_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
+            'mail_address' => 'required|string|email|max:100|unique:users',
+            'sex' => 'required|starts_with:男性,女性,その他|ends_with:男性,女性,その他',
+            'birth_day' =>
+            'role' =>
+            'password' =>
+        ]);
+        return $validator;
+    }
+
     public function registerPost(Request $request)
     {
         DB::beginTransaction();
-        try{
+        try {
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
@@ -83,7 +100,7 @@ class RegisterController extends Controller
             $user->subjects()->attach($subjects);
             DB::commit();
             return view('auth.login.login');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollback();
             return redirect()->route('loginView');
         }
