@@ -66,24 +66,40 @@ class RegisterController extends Controller
             'over_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
             'under_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
             'mail_address' => 'required|string|email|max:100|unique:users',
-            'sex' => 'required|starts_with:男性,女性,その他|ends_with:男性,女性,その他',
-            'birth_day' =>
-            'role' =>
-            'password' =>
+            'sex' => 'required|integer|max:3',
+
+            'old_year' => 'nullable|present|numeric|required_with:month,day',
+            'old_month' => 'nullable|present|numeric|required_with:year,day',
+            'old_day' => 'nullable|present|numeric|required_with:year,month',
+            'role' => 'required|integer|max:4',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
         ]);
         return $validator;
     }
 
     public function registerPost(Request $request)
     {
+        $data = $request->input();
+        $validator = $this->Validator($data);
+        if ($validator->fails()) {
+            return redirect('/register')
+                ->withInput()
+                // ()内でerror送るよ
+                ->withErrors($validator);
+        }
         DB::beginTransaction();
+
+
         try {
+
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
+
 
             $user_get = User::create([
                 'over_name' => $request->over_name,
