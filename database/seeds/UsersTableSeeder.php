@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
             'under_name' => '勇気',
             'over_name_kana' => 'タナカ',
             'under_name_kana' => 'ユウキ',
-            'mail_address' => 'test@test.com',
+            'mail_address' => 'test2@test.com',
             'sex' => '1',
             'birth_day' => '1998/12/29',
-            'role' => '1',
+            'role' => '4',
             'password' => bcrypt('test12345'),
         ]);
     }
