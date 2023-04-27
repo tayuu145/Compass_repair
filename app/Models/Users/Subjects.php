@@ -17,6 +17,6 @@ class Subjects extends Model
 
     public function users()
     {
-        return $this->belogsToMany('App\Models\Users\User'); // リレーションの定義
+        return $this->belogsToMany(User::class, 'subject_users', 'subject_id', 'user_id'); // リレーションの定義
     }
 }
