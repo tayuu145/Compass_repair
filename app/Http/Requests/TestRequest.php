@@ -30,13 +30,26 @@ class TestRequest extends FormRequest
             'under_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
             'mail_address' => 'required|string|email|max:100|unique:users',
             'sex' => 'required|integer|max:3',
-
-            'old_year' => 'nullable|present|numeric|required_with:month,day',
-            'old_month' => 'nullable|present|numeric|required_with:year,day',
-            'old_day' => 'nullable|present|numeric|required_with:year,month',
+            'birth' =>  'nullable|present|numeric|after:2000/01/01',
+            'old_year' => 'required_with:old_month,old_day',
+            'old_month' => 'required_with:old_year,old_day',
+            'old_day' => 'required_with:old_year,old_month',
             'role' => 'required|integer|max:4',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|string|between:8,30',
             'password_confirmation' => 'required',
+
         ];
+    }
+
+    public function getValidatorInstance()
+    {
+        if ($this->input('old_day') && $this->input('old_month') && $this->input('old_year')) {
+            $birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
+            $this->merge([
+                'birth' => $birthDate,
+            ]);
+        }
+
+        return parent::getValidatorInstance();
     }
 }

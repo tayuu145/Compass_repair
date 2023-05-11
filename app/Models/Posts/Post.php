@@ -15,20 +15,29 @@ class Post extends Model
         'post',
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\Models\Users\User');
     }
 
-    public function postComments(){
+    public function postComments()
+    {
         return $this->hasMany('App\Models\Posts\PostComment');
     }
 
-    public function subCategories(){
+    public function subCategories()
+    {
         // リレーションの定義
     }
 
+    public function likes()
+    {
+        return $this->hasMany('App\Models\Posts\Like');
+    }
+
     // コメント数
-    public function commentCounts($post_id){
+    public function commentCounts($post_id)
+    {
         return Post::with('postComments')->find($post_id)->postComments();
     }
 }
