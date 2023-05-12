@@ -49,7 +49,8 @@ class PostsController extends Controller
     public function postInput()
     {
         $main_categories = MainCategory::get();
-        return view('authenticated.bulletinboard.post_create', compact('main_categories'));
+        $sub_categories = SubCategory::get();
+        return view('authenticated.bulletinboard.post_create', compact('main_categories', 'sub_categories'));
     }
 
     public function postCreate(PostFormRequest $request)
@@ -79,6 +80,11 @@ class PostsController extends Controller
     public function mainCategoryCreate(Request $request)
     {
         MainCategory::create(['main_category' => $request->main_category_name]);
+        return redirect()->route('post.input');
+    }
+    public function subCategoryCreate(Request $request)
+    {
+        SubCategory::create(['sub_category' => $request->sub_category_name]);
         return redirect()->route('post.input');
     }
 
