@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TestRequest extends FormRequest
 {
@@ -21,6 +22,7 @@ class TestRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         $sexarry = ['1', '2', '3'];
@@ -31,12 +33,12 @@ class TestRequest extends FormRequest
             'over_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
             'under_name_kana' => 'required|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|string|max:30',
             'mail_address' => 'required|string|email|max:100|unique:users',
-            'sex' => 'required|Rule::in($sexarry)',
+            'sex' => ['required', Rule::in($sexarry)],
             'birth' =>  'nullable|present|after:2000/01/01|before_or_equal:today',
             'old_year' => 'required_with:old_month,old_day',
             'old_month' => 'required_with:old_year,old_day',
             'old_day' => 'required_with:old_year,old_month',
-            'role' => 'required|Rule::in($rolearry)',
+            'role' => ['required', Rule::in($rolearry)],
             'password' => 'required|confirmed|string|between:8,30',
             'password_confirmation' => 'required',
 

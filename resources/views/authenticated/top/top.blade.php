@@ -10,7 +10,6 @@
       <p>性別：@if(Auth::user()->sex == 1)<span>男</span>@else<span>女</span>@endif</p>
       <p>生年月日：<span>{{ Auth::user()->birth_day }}</span></p>
       @if (Auth::user()->role == '4')
-      <!-- <p>選択科目：<span>@if</span></p> -->
       <div>
         <form action="{{ route('user.edit') }}" method="post">
           <div class="mt-3">
