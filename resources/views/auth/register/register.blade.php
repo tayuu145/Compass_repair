@@ -15,16 +15,16 @@
 </head>
 
 <body>
-  @if ($errors->any())
+  <!-- @if ($errors->any())
   <div class="alert alert-danger">
     <ul>
-      <!-- ↓送られたerror名 -->
+      ↓送られたerror名
       @foreach ($errors->all() as $validator)
       <li>{{ $validator }}</li>
       @endforeach
     </ul>
-  </div>
-  @endif
+  </div> -->
+  <!-- @endif -->
   <form action="{{ route('registerPost') }}" method="POST">
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
@@ -43,6 +43,27 @@
               </div>
             </div>
           </div>
+          @if ($errors->has('over_name'))
+          <div class="alert-danger">
+            <ul>
+              <!-- ↓送られたerror名 -->
+              @foreach ($errors->get('over_name') as $validator)
+              <li>{{ $validator }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if ($errors->has('under_name'))
+          <div class="alert-danger">
+            <ul>
+              <!-- ↓送られたerror名 -->
+              @foreach ($errors->get('under_name') as $validator)
+              <li>{{ $validator }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">セイ</label>
@@ -57,11 +78,42 @@
               </div>
             </div>
           </div>
+          @if ($errors->has('over_name_kana'))
+          <div class="alert-danger">
+            <ul>
+              <!-- ↓送られたerror名 -->
+              @foreach ($errors->get('over_name_kana') as $validator)
+              <li>{{ $validator }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if ($errors->has('under_name_kana'))
+          <div class="alert-danger">
+            <ul>
+              <!-- ↓送られたerror名 -->
+              @foreach ($errors->get('under_name_kana') as $validator)
+              <li>{{ $validator }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+
           <div class="mt-3">
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
             </div>
+            @if ($errors->has('mail_address'))
+            <div class="alert-danger">
+              <ul>
+                <!-- ↓送られたerror名 -->
+                @foreach ($errors->get('mail_address') as $validator)
+                <li>{{ $validator }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
           </div>
         </div>
         <div class="mt-3">
@@ -72,6 +124,17 @@
           <input type="radio" name="sex" class="sex" value="3">
           <label style="font-size:13px">その他</label>
         </div>
+        @if ($errors->has('sex'))
+        <div class="alert-danger">
+          <ul>
+            <!-- ↓送られたerror名 -->
+            @foreach ($errors->get('sex') as $validator)
+            <li>{{ $validator }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
@@ -155,7 +218,18 @@
             <option value="31">31</option>
           </select>
           <label style="font-size:13px">月</label>
+          @if ($errors->has('birth'))
+          <div class="alert-danger">
+            <ul>
+              <!-- ↓送られたerror名 -->
+              @foreach ($errors->get('birth') as $validator)
+              <li>{{ $validator }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
         </div>
+
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">役職</label>
           <input type="radio" name="role" class="admin_role role" value="1">
@@ -167,6 +241,17 @@
           <input type="radio" name="role" class="other_role role" value="4">
           <label style="font-size:13px" class="other_role">生徒</label>
         </div>
+        @if ($errors->has('role'))
+        <div class="alert-danger">
+          <ul>
+            <!-- ↓送られたerror名 -->
+            @foreach ($errors->get('role') as $validator)
+            <li>{{ $validator }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
         <div class="select_teacher d-none">
           <label class="d-block m-0" style="font-size:13px">選択科目</label>
           @foreach($subjects as $subject)
@@ -176,18 +261,50 @@
           </div>
           @endforeach
         </div>
+        @if ($errors->has('subject[]'))
+        <div class="alert-danger">
+          <ul>
+            <!-- ↓送られたerror名 -->
+            @foreach ($errors->get('subject[]') as $validator)
+            <li>{{ $validator }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
           </div>
         </div>
+        @if ($errors->has('password'))
+        <div class="alert-danger">
+          <ul>
+            <!-- ↓送られたerror名 -->
+            @foreach ($errors->get('password') as $validator)
+            <li>{{ $validator }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
           </div>
         </div>
+        @if ($errors->has('password_confirmation'))
+        <div class="alert-danger">
+          <ul>
+            <!-- ↓送られたerror名 -->
+            @foreach ($errors->get('password_confirmation') as $validator)
+            <li>{{ $validator }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         <div class="mt-5 text-right">
           <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
         </div>
