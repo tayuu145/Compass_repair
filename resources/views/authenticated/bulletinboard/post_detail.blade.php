@@ -46,8 +46,19 @@
         <p class="m-0">コメントする</p>
         <textarea class="w-100" name="comment" form="commentRequest"></textarea>
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
+        @if ($errors->has('comment'))
+        <div class="alert-danger">
+          <ul>
+            <!-- ↓送られたerror名 -->
+            @foreach ($errors->get('comment') as $validator)
+            <li>{{ $validator }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
+
       </div>
     </div>
   </div>
