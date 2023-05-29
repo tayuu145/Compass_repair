@@ -42,8 +42,13 @@
         @endif
       </div>
       <div>
+        <!-- roleが値が4になっていれば -->
         @if($user->role == 4)
-        <span>選択科目 :</span><span>{{$user->subjects}}</span>
+        <span>選択科目 :</span>
+        <!-- foreachでallで取得した特定のカラムだけ表示 -->
+        @foreach ($user->subjects as $subject)
+        <span>{{$subject->subject}}</span>
+        @endforeach
         @endif
       </div>
     </div>
