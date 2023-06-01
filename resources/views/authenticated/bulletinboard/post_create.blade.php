@@ -11,10 +11,11 @@
 
         <optgroup label="{{ $main_category->main_category }}" class="gray"></optgroup>
 
-        @endforeach
+
         @foreach($sub_categories as $sub_category)
         <!-- サブカテゴリー表示 -->
         <option label="{{ $sub_category->sub_category }}"></option>
+        @endforeach
         @endforeach
         </optgroup>
       </select>

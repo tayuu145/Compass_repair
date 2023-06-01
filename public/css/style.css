@@ -283,3 +283,8 @@ li {
   color: #999;
   font-weight: lighter;
 }
+
+.check-input {
+  margin-left: 40px;
+  margin-top: -25px;
+}
