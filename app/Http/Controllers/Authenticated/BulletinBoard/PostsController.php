@@ -21,7 +21,7 @@ class PostsController extends Controller
     public function show(Request $request)
     {
         $posts = Post::with('user', 'postComments')->get();
-        $categories = MainCategory::get();
+        $categories = MainCategory::with('subcategories')->get();
         $like = new Like;
         $post_comment = new Post;
         if (!empty($request->keyword)) {
@@ -61,6 +61,10 @@ class PostsController extends Controller
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body
+        ]);
+        $subcategory = SubCategory::create([
+            '
+            '
         ]);
         return redirect()->route('post.show');
     }

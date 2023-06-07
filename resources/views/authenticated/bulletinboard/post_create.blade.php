@@ -14,8 +14,12 @@
 
         @foreach($sub_categories as $sub_category)
         <!-- サブカテゴリー表示 -->
+        @if($main_category->id==$sub_category->main_category_id)
         <option label="{{ $sub_category->sub_category }}"></option>
+        @endif
         @endforeach
+
+
         @endforeach
         </optgroup>
       </select>

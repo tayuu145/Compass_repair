@@ -15,9 +15,9 @@
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
-            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}" name="like_posts">{{ $post->likes->count() }}</span></p>
             @else
-            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}" name="like_posts"></span></p>
             @endif
           </div>
         </div>
@@ -36,7 +36,14 @@
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>
         @foreach($categories as $category)
-        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
+        <li class="main_categories" name="category_word" category_id="{{ $category->id }}" form="postSearchRequest"><span>{{ $category->main_category }}<span></li>
+
+        @foreach($category->subcategories as $subcategory)
+        @if($category->id==$subcategory->main_category_id)
+        <button type="submit" category_id="{{ $category->id }}" name="category_word" form="postSearchRequest">　{{ $subcategory->sub_category }}</button>
+        @endif
+        @endforeach
+
         @endforeach
       </ul>
     </div>
