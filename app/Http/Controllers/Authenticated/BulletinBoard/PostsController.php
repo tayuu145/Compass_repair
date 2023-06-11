@@ -20,7 +20,7 @@ class PostsController extends Controller
 {
     public function show(Request $request)
     {
-        $posts = Post::with('user', 'postComments')->get();
+        $posts = Post::with('user', 'postComments', 'likes')->get();
         $categories = MainCategory::with('subcategories')->get();
         $like = new Like;
         $post_comment = new Post;
