@@ -98,7 +98,7 @@
 
               <label class="form-check-label">{{ $subject->subject }}</label>
               <div class="check-input">
-                <input type="checkbox" name="subjects" value="{{ $subject->id }}" form="userSearchRequest">
+                <input type="checkbox" name="subjects[]" value="{{ $subject->id }}" form="userSearchRequest">
               </div>
             </div>
             @endforeach
