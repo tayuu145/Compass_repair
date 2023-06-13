@@ -32,7 +32,8 @@ class Post extends Model
 
     public function likes()
     {
-        return $this->hasMany('App\Models\Posts\Like');
+        // 　　　　　　　　　　　　　　　　　　　　　　　　　　↓第二引数でカラムを指定。指定してないと外部キー命名規則のカラム名で探しに行く。
+        return $this->hasMany('App\Models\Posts\Like', 'like_post_id');
     }
 
     // コメント数
