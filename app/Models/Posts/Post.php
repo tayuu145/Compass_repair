@@ -4,6 +4,7 @@ namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Post extends Model
 {
     const UPDATED_AT = null;
@@ -25,7 +26,7 @@ class Post extends Model
         return $this->hasMany('App\Models\Posts\PostComment');
     }
 
-    public function subCategories()
+    public function subCategory()
     {
         // リレーションの定義
     }

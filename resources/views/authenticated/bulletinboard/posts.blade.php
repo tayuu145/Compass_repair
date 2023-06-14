@@ -41,7 +41,7 @@
 
         @foreach($category->subcategories as $subcategory)
         @if($category->id==$subcategory->main_category_id)
-        <button type="submit" category_id="{{ $category->id }}" name="category_word" form="postSearchRequest">　{{ $subcategory->sub_category }}</button>
+        <li><button type="submit" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">　{{ $subcategory->sub_category }}</button></li>
         @endif
         @endforeach
 

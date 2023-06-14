@@ -14,6 +14,7 @@ use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\TestRequest;
 use App\Http\Requests\SubcategoriyPostRequest;
 use App\Http\Requests\commentPostRequest;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class PostsController extends Controller
@@ -63,9 +64,9 @@ class PostsController extends Controller
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
-        $subcategory = SubCategory::create([
-            '
-            '
+        DB::table('post_sub_categories')->insert([
+            'sub_category_id' => $request->post_category_id,
+            'post_id' => $post->id
         ]);
         return redirect()->route('post.show');
     }
