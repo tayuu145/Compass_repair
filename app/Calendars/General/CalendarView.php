@@ -71,7 +71,12 @@ class CalendarView
           }
         } elseif ($startDay <= $day->everyDay() && $toDay >= $day->everyDay()) {
           // 　　　　　　      ↑過去日ならの条件式
-          $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
+          if (!empty($reservePart)) {
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">' . $reservePart . '</p>';
+          } else {
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
+          }
+
           $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
         } else {
           $html[] = $day->selectPart($day->everyDay());
