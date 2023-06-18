@@ -69,15 +69,16 @@ class CalendarView
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">' . $reservePart . '</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
-        } elseif ($startDay <= $day->everyDay() && $toDay >= $day->everyDay()) {
-          // 　　　　　　      ↑過去日ならの条件式
-          if (!empty($reservePart)) {
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">' . $reservePart . '</p>';
-          } else {
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
-          }
+          if ($startDay <= $day->everyDay() && $toDay >= $day->everyDay()) {
+            // 　　　　　　      ↑過去日ならの条件式
+            if (!empty($reservePart)) {
+              $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">' . $reservePart . '</p>';
+            } else {
+              $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
+            }
 
-          $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+          }
         } else {
           $html[] = $day->selectPart($day->everyDay());
         }
