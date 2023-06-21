@@ -21,5 +21,6 @@ class SubCategory extends Model
     public function posts()
     {
         // リレーションの定義
+        return $this->hasMany('App\Models\Posts\Post');
     }
 }
