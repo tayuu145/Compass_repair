@@ -29,7 +29,7 @@ class Post extends Model
     public function subCategory()
     {
         // リレーションの定義
-        return $this->hasMany('App\Models\Categories\SubCategory', 'sub_category');
+        return $this->belongsTo('App\Models\Categories\SubCategory', 'sub_category');
     }
 
     public function likes()
