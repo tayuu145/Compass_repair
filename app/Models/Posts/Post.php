@@ -3,7 +3,7 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Categories\SubCategory;
 
 class Post extends Model
 {
@@ -29,7 +29,7 @@ class Post extends Model
     public function subCategory()
     {
         // リレーションの定義
-        return $this->belongsTo('App\Models\Categories\SubCategory', 'sub_category');
+        return $this->belongsToMany('App\Models\Categories\SubCategory', 'post_sub_categories', 'post_id', 'sub_category_id');
     }
 
     public function likes()

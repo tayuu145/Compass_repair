@@ -33,7 +33,9 @@ class PostsController extends Controller
         } else if ($request->category_word) {
             $sub_category = $request->category_word;
             $posts = Post::with('user', 'postComments')
+                //               ↓リレーションしているメソッド名
                 ->whereHas('subCategory', function ($q) use ($sub_category) {
+                    // 　　　　　　↓どのカラムをさがしたいか
                     $q->where('sub_category', $sub_category);
                 })->get();
         } else if ($request->like_posts) {

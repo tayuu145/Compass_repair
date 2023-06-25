@@ -40,18 +40,22 @@ class CalendarsController extends Controller
 
     public function delete(Request $request)
     {
-
-        $deletedate = $request->delete_date;
-        $reservation = ReserveSettings::where('reserve_setting_id', $deletedate)->first();
-
-        if (!$reservation) {
-            return redirect()->back()->with('error', '予約が見つかりませんでした。');
+        DB::beginTransaction();
+        try {
+            $setting_reserve = $request->delete_date;
+            $setting_user = ReserveSettings::whereHas('users', function ($q) use ($setting_reserve) {
+                // 　　　　　　↓どのカラムをさがしたいか
+                $q->where('setting_reserve', $setting_reserve);
+            })->get();
+            foreach ($setting_user as $key) {
+                ReserveSettings::where('setting_reserve', $key)->delete();
+                // $reserve_settings->increment('limit_users');
+                // $reserve_settings->users()->attach(Auth::id());
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
         }
-
-        // 予約をキャンセルする処理を実行
-        $reservation->canceled = true;
-        $reservation->save();
-
-        return redirect()->back()->with('success', '予約がキャンセルされました。');
+        return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 }
