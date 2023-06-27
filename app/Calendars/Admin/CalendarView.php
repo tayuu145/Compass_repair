@@ -51,6 +51,7 @@ class CalendarView
           $html[] = '<td class="border ' . $day->getClassName() . '">';
         }
         $html[] = $day->render();
+        // 予約数↓
         $html[] = $day->dayPartCounts($day->everyDay());
         $html[] = '</td>';
       }

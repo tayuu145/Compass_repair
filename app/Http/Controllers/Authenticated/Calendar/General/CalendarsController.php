@@ -42,6 +42,8 @@ class CalendarsController extends Controller
     {
         DB::beginTransaction();
         try {
+            $getPart = $request->getPart;
+            $getDate = $request->getData;
             $setting_reserve = $request->delete_date;
             $setting_user = ReserveSettings::whereHas('users', function ($q) use ($setting_reserve) {
                 // 　　　　　　↓どのカラムをさがしたいか
