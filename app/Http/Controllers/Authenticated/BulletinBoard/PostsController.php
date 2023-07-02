@@ -11,7 +11,7 @@ use App\Models\Posts\PostComment;
 use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
-use App\Http\Requests\TestRequest;
+use App\Http\Requests\EditPostRequest;
 use App\Http\Requests\SubcategoriyPostRequest;
 use App\Http\Requests\commentPostRequest;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +76,7 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
 
-    public function postEdit(TestRequest $request)
+    public function postEdit(EditPostRequest $request)
     {
         Post::where('id', $request->post_id)->update([
             'post_title' => $request->post_title,

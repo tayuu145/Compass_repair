@@ -158,6 +158,9 @@ return [
         'password_confirmation' => '確認用パスワード',
         'comment' => 'コメント',
 
+        'post_title' => 'タイトル',
+        'post_body' => '内容',
+
     ],
 
 ];

@@ -44,16 +44,10 @@ class CalendarsController extends Controller
         try {
             $getPart = $request->getPart;
             $getDate = $request->getData;
-            $setting_reserve = $request->delete_date;
-            $setting_user = ReserveSettings::whereHas('users', function ($q) use ($setting_reserve) {
-                // 　　　　　　↓どのカラムをさがしたいか
-                $q->where('setting_reserve', $setting_reserve);
-            })->get();
-            foreach ($setting_user as $key) {
-                ReserveSettings::where('setting_reserve', $key)->delete();
-                // $reserve_settings->increment('limit_users');
-                // $reserve_settings->users()->attach(Auth::id());
-            }
+
+            $reserve_settings = ReserveSettings::where('setting_reserve', $getPart)->where('setting_part', $getDate)->first();
+            $reserve_settings->increment('limit_users');
+            $reserve_settings->users()->detach(Auth::id());
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
