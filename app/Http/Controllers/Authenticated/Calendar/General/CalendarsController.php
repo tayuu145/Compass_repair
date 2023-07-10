@@ -43,18 +43,25 @@ class CalendarsController extends Controller
 
 
         DB::beginTransaction();
-        try {
-            $getPart = $request->getPart;
-            $getDate = $request->getData;
-            dd($getPart);
+        // try {
+        $getPart = $request->getPart[0];
+        $getDate = $request->getData[0];
 
-            $reserve_settings = ReserveSettings::where('setting_reserve', $getDate[0])->where('setting_part', $getPart[0])->first();
-            $reserve_settings->increment('limit_users');
-            $reserve_settings->users()->detach(Auth::id());
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-        }
+
+        $reserve_settings = ReserveSettings::where('setting_reserve', $getDate)->where('setting_part', $getPart)->first();
+        $reserve_settings->increment('limit_users');
+        $reserve_settings->users()->detach(Auth::id());
+        DB::commit();
+        // }
+        // catch (\Exception $e) {
+        //     DB::rollback();
+        // }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
+    }
+
+    public function reserveDetail($deta, $part)
+    {
+        dd($deta);
+        return view('calendar.admin.reserve_detail.blade.php');
     }
 }
