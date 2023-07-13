@@ -39,13 +39,16 @@ class CalendarWeekDay
 
     $html[] = '<div class="text-left">';
     if ($one_part) {
-      $html[] = '<p class="day_part m-0 pt-1"><a href=' . "{{ route( calendar.admin.detail) }}" . '>1部</a>　' . $one_part->users->count() . '</p>';
+      $url = '/calendar/' . $one_part->id . '/' . $one_part->setting_reserve . '/' . $one_part->setting_part . '';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' . $url . '">1部</a>　' . $one_part->users->count() . '</p>';
     }
     if ($two_part) {
-      $html[] = '<p class="day_part m-0 pt-1"><a href=' . "{{ route( calendar.admin.detail) }}" . '>2部</a>　' . $two_part->users->count() . '</p>';
+      $url = '/calendar/' . $two_part->id . '/' . $two_part->setting_reserve . '/' . $two_part->setting_part . '';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' . $url . '">2部</a>　' . $two_part->users->count() . '</p>';
     }
     if ($three_part) {
-      $html[] = '<p class="day_part m-0 pt-1"><a href=' . "{{ route( calendar.admin.detail) }}" . '>3部</a>　' . $three_part->users->count() . '</p>';
+      $url = '/calendar/' . $three_part->id . '/' . $three_part->setting_reserve . '/' . $three_part->setting_part . '';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' . $url . '">3部</a>　' . $three_part->users->count() . '</p>';
     }
     $html[] = '</div>';
 

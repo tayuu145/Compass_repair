@@ -44,6 +44,7 @@ class CalendarsController extends Controller
 
         DB::beginTransaction();
         // try {
+        dd($request->getData);
         $getPart = $request->getPart[0];
         $getDate = $request->getData[0];
 
@@ -59,9 +60,10 @@ class CalendarsController extends Controller
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 
-    public function reserveDetail($deta, $part)
+    public function reserveDetail(Request $request)
     {
-        dd($deta);
-        return view('calendar.admin.reserve_detail.blade.php');
+
+        $requestdate = $request;
+        return view('calendar.admin.reserve_detail.blade.php', compact('requestdate'));
     }
 }

@@ -69,7 +69,7 @@ class CalendarView
           } else {
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delet" style="font-size:12px" form="deleteParts" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">' . $reservePart . '</button>';
             $html[] = '<input type="hidden" name="getPart[0]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" form="deleteParts">';
-            $html[] = '<input type="hidden" value="' . $this->carbon->format('Y-m-d') . '" name="getData[0]" form="deleteParts">';
+            $html[] = '<input type="hidden" value="' . $this->carbon->format('Y-m-d') . '" name="" form="deleteParts">';
           }
           // 予約ない場合
         } else {
