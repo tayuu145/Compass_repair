@@ -44,9 +44,9 @@ class CalendarsController extends Controller
 
         DB::beginTransaction();
         // try {
-        dd($request->getData);
-        $getPart = $request->getPart[0];
-        $getDate = $request->getData[0];
+
+        $getPart = $request->getPart;
+        $getDate = $request->getData;
 
 
         $reserve_settings = ReserveSettings::where('setting_reserve', $getDate)->where('setting_part', $getPart)->first();
