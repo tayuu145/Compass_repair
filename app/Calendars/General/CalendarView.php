@@ -67,21 +67,25 @@ class CalendarView
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
             // 今日以降に
           } else {
-            $html[] = '<div class="calendar-modal-open" getPart="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '" getPart="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" >';
+            $html[] = '<div class="calendar-modal-open" getAria="' . $reservePart . '" getData="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '" getPart="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" >';
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delet" style="font-size:12px" form="deleteParts" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">' . $reservePart . '</button>';
-            $html[] = '<input type="hidden" name="getPart[0]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" form="deleteParts">';
-            $html[] = '<input type="hidden" value="' . $this->carbon->format('Y-m-d') . '" name="" form="deleteParts">';
+            // $html[] = '<input type="hidden" name="getPart[0]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" form="deleteParts">';
+            // $html[] = '<input type="hidden" value="' . $this->carbon->format('Y-m-d') . '" name="" form="deleteParts">';
             $html[] = '</div>';
+
 
             $html[] = '<div class="modal js-modal">';
             $html[] = '<div class="modal__bg js-modal-close"></div>';
             $html[] = '<div class="modal__content">';
             $html[] = '<div class="w-100">';
             $html[] = '<div class="modal-getData">';
-            $html[] = '<span name="getData" form="deleteParts"></span>';
+            $html[] = '<input type="text" name="getData" form="deleteParts" value="getData">';
             $html[] = '</div>';
-            $html[] = '<div class="modal-getPart">';
-            $html[] = '<span name="getPart" form="deleteParts"></span>';
+            $html[] = '<div class="modal-getAria">';
+            $html[] = '<input type="text" name="getAria" form="deleteParts" value="getAria">';
+            $html[] = '</div>';
+            $html[] = '<div>';
+            $html[] = '<input type="hidden" class="modal-getPart" name="getPart" form="deleteParts" value="getPart">';
             $html[] = '</div>';
             $html[] = '<div class="w-50 m-auto edit-modal-btn d-flex">';
             $html[] = '<a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>';
