@@ -45,7 +45,6 @@ class CalendarsController extends Controller
         DB::beginTransaction();
         // try {
 
-        dd($request->getData);
         $getPart = $request->getPart;
         $getDate = $request->getData;
 

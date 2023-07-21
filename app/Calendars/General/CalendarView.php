@@ -79,13 +79,13 @@ class CalendarView
             $html[] = '<div class="modal__content">';
             $html[] = '<div class="w-100">';
             $html[] = '<div class="modal-getData">';
-            $html[] = '<input type="text" name="getData" form="deleteParts" value="getData">';
+            $html[] = '<input type="text"  name="getData" form="deleteParts" readonly >';
             $html[] = '</div>';
             $html[] = '<div class="modal-getAria">';
             $html[] = '<input type="text" name="getAria" form="deleteParts" value="getAria">';
             $html[] = '</div>';
-            $html[] = '<div>';
-            $html[] = '<input type="hidden" class="modal-getPart" name="getPart" form="deleteParts" value="getPart">';
+            $html[] = '<div class="modal-getPart">';
+            $html[] = '<input type="hidden"  name="getPart" form="deleteParts" value="getPart">';
             $html[] = '</div>';
             $html[] = '<div class="w-50 m-auto edit-modal-btn d-flex">';
             $html[] = '<a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>';
