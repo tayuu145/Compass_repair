@@ -25,6 +25,12 @@ class CalendarsController extends Controller
         try {
             $getPart = $request->getPart;
             $getDate = $request->getData;
+            if (count($getPart) !== count($getDate)) {
+                // 要素数を揃える処理を行う（以下は一例）
+                $getPart = array_pad($getPart, count($getDate), null);
+                $getDate = array_pad($getDate, count($getPart), null);
+            }
+            // dd($getPart, $getDate);
             $reserveDays = array_filter(array_combine($getDate, $getPart));
             foreach ($reserveDays as $key => $value) {
                 $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();

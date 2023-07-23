@@ -64,11 +64,12 @@ class CalendarView
           // 過去日に
           if ($startDay <= $day->everyDay() && $toDay >= $day->everyDay()) {
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">' . $reservePart . '</p>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            $html[] = '<input type="hidden" name="getPart[]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" form="reserveParts">';
             // 今日以降に
           } else {
             $html[] = '<div class="calendar-modal-open" getAria="' . $reservePart . '" getData="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '" getPart="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" >';
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delet" style="font-size:12px" form="deleteParts" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">' . $reservePart . '</button>';
+            $html[] = '<input type="hidden" name="getPart[]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" form="reserveParts">';
             // $html[] = '<input type="hidden" name="getPart[0]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part . '" form="deleteParts">';
             // $html[] = '<input type="hidden" value="' . $this->carbon->format('Y-m-d') . '" name="" form="deleteParts">';
             $html[] = '</div>';
