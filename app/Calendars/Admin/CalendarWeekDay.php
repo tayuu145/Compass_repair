@@ -37,6 +37,7 @@ class CalendarWeekDay
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
 
 
+
     $html[] = '<div class="text-left">';
     if ($one_part) {
       $url = '/calendar/' . $one_part->id . '/' . $one_part->setting_reserve . '/' . $one_part->setting_part . '';

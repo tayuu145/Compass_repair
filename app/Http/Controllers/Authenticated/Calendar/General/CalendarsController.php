@@ -66,10 +66,10 @@ class CalendarsController extends Controller
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 
-    public function reserveDetail(Request $request)
+    public function reserveDetail($id, $data, $part)
     {
-
-        $requestdate = $request;
-        return view('calendar.admin.reserve_detail.blade.php', compact('requestdate'));
+        dd($part);
+        // $requestdate = $request;
+        // return view('calendar.admin.reserve_detail.blade.php', compact('requestdate'));
     }
 }
