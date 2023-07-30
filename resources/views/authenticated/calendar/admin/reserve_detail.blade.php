@@ -10,13 +10,18 @@
           <th class="w-25">ID</th>
           <th class="w-25">名前</th>
         </tr>
+        @foreach($reservePersons as $reservePerson)
+        @foreach($reservePerson->users as $user)
         <tr class="text-center">
-          @foreach($reservePersons->users as $reservePerson)
-          <td class="w-25">{{$reservePerson->id}}</td>
-          <td class="w-25"></td>
-          @endforeach
+
+
+          <td class="w-25">{{$user->id}}</td>
+          <td class="w-25">{{$user->over_name}}{{$user->under_name}}</td>
+
 
         </tr>
+        @endforeach
+        @endforeach
       </table>
     </div>
   </div>
