@@ -6,7 +6,7 @@ $(function () {
     var getAria = $(this).attr('getAria');
     $('.modal-getData input').val(getData);
     $('.modal-getPart input').val(getPart);
-    $('.modal-getAria').text(getAria);
+    $('.modal-getAria input').val(getAria);
     return false;
   });
   $('.js-modal-close').on('click', function () {

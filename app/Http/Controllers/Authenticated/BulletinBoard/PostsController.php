@@ -22,7 +22,7 @@ class PostsController extends Controller
     public function show(Request $request)
     {
         //                                                              ↓いいねの数をカウント
-        $posts = Post::with('user', 'postComments', 'likes')->withCount('likes')->get();
+        $posts = Post::with('user', 'postComments', 'likes', 'subCategory')->withCount('likes')->get();
         $categories = MainCategory::with('subcategories')->get();
         $like = new Like;
         $post_comment = new Post;
@@ -51,7 +51,7 @@ class PostsController extends Controller
 
     public function postDetail($post_id)
     {
-        $post = Post::with('user', 'postComments')->findOrFail($post_id);
+        $post = Post::with('user', 'postComments', 'subCategory')->findOrFail($post_id);
         $user_id = Auth::id();
         return view('authenticated.bulletinboard.post_detail', compact('post', 'user_id'));
     }

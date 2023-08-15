@@ -79,11 +79,14 @@ class CalendarView
             $html[] = '<div class="modal__bg js-modal-close"></div>';
             $html[] = '<div class="modal__content">';
             $html[] = '<div class="w-100">';
-            $html[] = '<div class="modal-getData">';
-            $html[] = '<input type="text"  name="getData" form="deleteParts" readonly >';
+            $html[] = '<div class="modal-getData yoyaku-sp text-left">';
+            $html[] = '<span>予約日：<input type="text" class="border-none" name="getData" form="deleteParts" readonly ></span>';
             $html[] = '</div>';
-            $html[] = '<div class="modal-getAria">';
-            $html[] = '<input type="text" name="getAria" form="deleteParts" value="getAria">';
+            $html[] = '<div class="modal-getAria yoyaku-sp text-left">';
+            $html[] = '<span>時間：<input type="text" class="border-none" name="getAria" form="deleteParts" value="getAria" readonly></span>';
+            $html[] = '</div>';
+            $html[] = '<div class="yoyaku-sp text-left">';
+            $html[] = '<p>上記の予約をキャンセルしてもよろしいですか？</p>';
             $html[] = '</div>';
             $html[] = '<div class="modal-getPart">';
             $html[] = '<input type="hidden"  name="getPart" form="deleteParts" value="getPart">';

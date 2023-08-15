@@ -9,6 +9,11 @@
       <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
       <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
       <div class="post_bottom_area d-flex">
+        @foreach($post->subCategory as $subCategory)
+        <div>
+          <p><span class="category_btn">{{$subCategory->sub_category}}</span></p>
+        </div>
+        @endforeach
         <div class="d-flex post_status">
           <div class="mr-5">
             <i class="fa fa-comment"></i><span class="">{{ $post->PostComments->count() }}</span>
@@ -41,7 +46,7 @@
 
         @foreach($category->subcategories as $subcategory)
         @if($category->id==$subcategory->main_category_id)
-        <li><button type="submit" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">　{{ $subcategory->sub_category }}</button></li>
+        <li class="subbtn"><button type="submit" class="category_btn" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">{{ $subcategory->sub_category }}</button></li>
         @endif
         @endforeach
 

@@ -24,7 +24,12 @@
           </ul>
         </div>
         @endif
-
+        <!-- $post->subCategoryからサブカテゴリーの情報を表示できないため、リレーションしているメソッド名をasで置き換えしてあげ、置き換えた名からカラム名を指定 -->
+        @foreach($post->subCategory as $subCategory)
+        <div>
+          <p><span class="category_btn">{{$subCategory->sub_category}}</span></p>
+        </div>
+        @endforeach
         <div class=" contributor d-flex">
           <p>
             <span>{{ $post->user->over_name }}</span>
