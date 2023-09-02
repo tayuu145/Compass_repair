@@ -33,23 +33,29 @@
   </div>
   <div class="other_area border w-25">
     <div class="border m-4">
-      <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
-      <div class="">
-        <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
-        <input type="submit" value="検索" form="postSearchRequest">
+      <a href="{{ route('post.input') }}" class="a-siro">
+        <div class="post-creat">投稿</div>
+      </a>
+      <div class="w100">
+        <input type="text" placeholder="キーワードを検索" class="search" name="keyword" form="postSearchRequest">
+        <input type="submit" value="検索" class="search-b" form="postSearchRequest">
       </div>
-      <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
-      <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
-      <ul>
+      <div class="w100">
+        <input type="submit" name="like_posts" class="like-post" value="いいねした投稿" form="postSearchRequest">
+        <input type="submit" name="my_posts" class="my-post" value="自分の投稿" form="postSearchRequest">
+      </div>
+      <ul id="accordion" class="accordion-container">
         @foreach($categories as $category)
-        <li class="main_categories" name="category_word" category_id="{{ $category->id }}" form="postSearchRequest"><span>{{ $category->main_category }}<span></li>
-
-        @foreach($category->subcategories as $subcategory)
-        @if($category->id==$subcategory->main_category_id)
-        <li class="subbtn"><button type="submit" class="category_btn" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">{{ $subcategory->sub_category }}</button></li>
-        @endif
-        @endforeach
-
+        <li class="main_categories accordion-title js-accordion-title" name="category_word" category_id="{{ $category->id }}" form="postSearchRequest"><span>{{ $category->main_category }}<span></li>
+        <!-- 折りたたまれている -->
+        <div class="accordion-content">
+          @foreach($category->subcategories as $subcategory)
+          @if($category->id==$subcategory->main_category_id)
+          <li class="subbtn"><button type="submit" class="category_btn" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">{{ $subcategory->sub_category }}</button></li>
+          @endif
+          @endforeach
+        </div>
+        <!-- ここまで -->
         @endforeach
       </ul>
     </div>

@@ -6,6 +6,33 @@
   padding: 0;
 }
 
+.bkc-login {
+  background-color: #F8F8FF;
+}
+
+.img-login {
+  margin-bottom: 500px;
+  margin-right: -21%;
+}
+
+
+.bkc-siro {
+  background-color: white;
+}
+
+.kadomaru {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
+}
+
+.mag-top10 {
+  margin-top: 10px;
+}
+
+.yoko {
+  display: flex;
+}
+
 /* body */
 .all_content {
   background: #ECF1F6;
@@ -16,9 +43,23 @@ li {
   list-style: none;
 }
 
+.a-siro {
+  text-decoration: none;
+  color: #FFFFFF;
+  /* 今回は#000000を指定していますが、好きな色を指定できます */
+}
+
+.bgco {
+  background-color: #d0e5ff;
+}
+
+.sirowaku {
+  padding: 2px #ffff;
+}
+
 /* サイドバー */
 .sidebar {
-  width: 150px;
+  width: 180px;
   height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
@@ -33,6 +74,21 @@ li {
 }
 
 /* トップページ */
+.table-kintou {
+  table-layout: auto;
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #e6f7ff;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+  /* 偶数行の背景色 */
+}
+
+
 .user_status {
   border-radius: 10px;
   background: #FFF;
@@ -121,6 +177,15 @@ li {
 }
 
 /* 掲示板 */
+.post-creat {
+  background-color: #03AAD2;
+  border-radius: 7px;
+  text-align: center;
+  color: #FFFFFF;
+  height: 40px;
+  padding: 10px;
+}
+
 .sub_categories {
   display: none;
 }
@@ -162,6 +227,53 @@ li {
 .error_message {
   font-size: 12px;
   color: red;
+}
+
+.search {
+  margin-top: 20px;
+  border-radius: 10px 0% 0% 10px;
+  height: 40px;
+  width: 80%;
+  outline: none;
+  border-color: #f2f2f2;
+  background-color: transparent;
+}
+
+.search-b {
+  background-color: #03AAD2;
+  height: 40px;
+  width: 19%;
+  border-radius: 0px 10px 10px 0px;
+  margin-left: -1%;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.like-post {
+  background-color: #FF69A3;
+  border-radius: 10px;
+  width: 49%;
+  height: 40px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.my-post {
+  margin-left: -1%;
+  background-color: #FFCC66;
+  border-radius: 10px;
+  width: 49%;
+  height: 40px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.w80 {
+  width: 80%;
 }
 
 /* 掲示板 詳細画面 */
@@ -237,12 +349,14 @@ li {
 }
 
 .category_btn {
-  font-size: 12px;
-  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
   padding: 0 5px;
   border: none;
-  background: #999;
+  background: #03AAD2;
   color: #FFF;
+  padding: 5px 8px;
 }
 
 .main_categories span,
@@ -255,13 +369,29 @@ li {
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
-  width: 800px;
   margin: 10px auto;
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  background: #FFF;
+  background: transparent;
   border-radius: 5px;
+}
+
+.search-s {
+  border-radius: 10px;
+  height: 40px;
+  width: 80%;
+  outline: none;
+  border: none;
+  background-color: #dcdcdc;
+}
+
+.p-s {
+  margin-top: 10px;
+}
+
+.margin-10 {
+  margin: 15px;
 }
 
 .reserve_users_area span {
@@ -269,8 +399,11 @@ li {
 }
 
 .one_person {
-  width: 250px;
+  width: 280px;
   height: 250px;
+  margin: 10px;
+  padding: 8px;
+  background-color: #FFFFFF;
 }
 
 .search_conditions span {
@@ -279,7 +412,8 @@ li {
 
 .search_conditions_inner {
   display: none;
-  background: #FFF;
+  background: transparent;
+
 }
 
 .subject_edit_btn {
@@ -292,6 +426,16 @@ li {
   display: none;
 }
 
+.subject_after {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.bk-toumei-waku {
+  background: transparent;
+  border: none;
+}
 
 .gray {
   color: #999;
@@ -299,8 +443,20 @@ li {
 }
 
 .check-input {
-  margin-left: 40px;
-  margin-top: -25px;
+  margin-left: 5px;
+  margin-right: 11px;
+  margin-top: 1px;
+}
+
+.post-creat-s {
+  border: none;
+  width: 80%;
+  background-color: #03AAD2;
+  border-radius: 7px;
+  text-align: center;
+  color: #FFFFFF;
+  height: 40px;
+  padding: 10px;
 }
 
 .past-date {
@@ -309,4 +465,111 @@ li {
 
 .subbtn {
   margin-left: 15px;
+}
+
+
+.accordion-container {
+  position: relative;
+  width: 100%;
+  border: 1px solid #0079c1;
+  border-top: none;
+  outline: 0;
+  cursor: pointer
+}
+
+.accordion-container .accordion-title {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0.625em 0.625em 0.625em 2em;
+  font-size: 1.25em;
+  font-weight: normal;
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+}
+
+.accordion-container .accordion-title:hover,
+.accordion-container .accordion-title:active,
+.accordion-container .content-entry.open .accordion-title {
+  background-color: #00aaa7;
+  color: white;
+}
+
+.accordion-container .accordion-title:hover i:before,
+.accordion-container .accordion-title:hover i:active,
+.accordion-container .content-entry.open i {
+  color: white;
+}
+
+.search_conditions {
+  position: relative;
+}
+
+.search_conditions::after {
+  content: "";
+  position: absolute;
+  right: 1%;
+  top: 38%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #000;
+  border-right: solid 2px #000;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.search_conditions.open:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 45%;
+}
+
+.search-waku {
+  border: solid #D3D3D3;
+  border-width: 0.2px;
+  width: 80%;
+
+}
+
+.accordion-title {
+  position: relative;
+}
+
+.accordion-title:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.accordion-title.open:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 45%;
+}
+
+.accordion-content {
+  display: none;
+  padding-left: 2.3125em;
+}
+
+/* CSS for CodePen */
+.accordion-container {
+  width: 300px;
+  margin: 1.875em auto;
+}
+
+.search_area {
+  width: 35%;
 }
