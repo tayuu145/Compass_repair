@@ -528,7 +528,7 @@ li {
 .accordion-container .accordion-title {
   border-bottom: solid #D3D3D3;
   border-width: 0.2px;
-  width: 80%;
+  width: 100%;
 }
 
 .accordion-container .accordion-title:hover,
@@ -608,7 +608,7 @@ li {
 
 /* CSS for CodePen */
 .accordion-container {
-  width: 300px;
+
   margin: 1.875em auto;
 }
 
