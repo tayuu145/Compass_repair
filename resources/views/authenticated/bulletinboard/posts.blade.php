@@ -51,7 +51,7 @@
         <div class="accordion-content">
           @foreach($category->subcategories as $subcategory)
           @if($category->id==$subcategory->main_category_id)
-          <li class="subbtn"><button type="submit" class="category_btn" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">{{ $subcategory->sub_category }}</button></li>
+          <li class="subbtn"><button type="submit" class="category_kensaku" category_id="{{ $category->id }}" name="category_word" value="{{ $subcategory->sub_category }}" form="postSearchRequest">{{ $subcategory->sub_category }}</button></li>
           @endif
           @endforeach
         </div>

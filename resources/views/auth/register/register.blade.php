@@ -26,8 +26,8 @@
   </div> -->
   <!-- @endif -->
   <form action="{{ route('registerPost') }}" method="POST">
-    <div class="w-100 vh-100 d-flex bkc-login" style="align-items:center; justify-content:center;">
-      <div class="w-25 vh-75 border p-3 bkc-siro kadomaru">
+    <div class="w-100 d-flex bkc-login" style="align-items:center; justify-content:center;">
+      <div class="w-25 mag-60 border p-3 bkc-siro kadomaru">
         <div class="register_form">
           @if ($errors->has('over_name'))
           <div class="alert-danger">

@@ -8,11 +8,12 @@
 
 .bkc-login {
   background-color: #F8F8FF;
+  background-size: contain;
 }
 
 .img-login {
-  margin-bottom: 500px;
-  margin-right: -21%;
+  text-align: center;
+
 }
 
 
@@ -33,6 +34,20 @@
   display: flex;
 }
 
+.pad-bottom {
+  padding-bottom: 20px;
+}
+
+.img-cont {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.cont {
+  margin: 20px auto;
+
+}
+
 /* body */
 .all_content {
   background: #ECF1F6;
@@ -49,12 +64,17 @@ li {
   /* 今回は#000000を指定していますが、好きな色を指定できます */
 }
 
-.bgco {
+#bgco {
   background-color: #d0e5ff;
 }
 
 .sirowaku {
   padding: 2px #ffff;
+}
+
+.mag-60 {
+  margin-top: 6%;
+  margin-bottom: 6%;
 }
 
 /* サイドバー */
@@ -79,11 +99,11 @@ li {
   width: 100%;
 }
 
-tr:nth-child(odd) {
+.sima:nth-child(odd) {
   background-color: #e6f7ff;
 }
 
-tr:nth-child(even) {
+.sima:nth-child(even) {
   background-color: #fff;
   /* 偶数行の背景色 */
 }
@@ -134,6 +154,10 @@ tr:nth-child(even) {
 
 .adjust-table-btn {
   width: 70%;
+}
+
+.clor-kuro {
+  color: #000;
 }
 
 /* モーダル */
@@ -335,6 +359,20 @@ tr:nth-child(even) {
 }
 
 /* 掲示板　カテゴリー */
+.main-waku {
+  border-bottom: solid #D3D3D3;
+  border-width: 0.2px;
+  width: 135px;
+
+}
+
+.sub-waku {
+  border-bottom: solid #D3D3D3;
+  border-width: 0.2px;
+  width: 135px;
+
+}
+
 .category_area {
   background: #FFF;
   border-radius: 10px;
@@ -357,6 +395,17 @@ tr:nth-child(even) {
   background: #03AAD2;
   color: #FFF;
   padding: 5px 8px;
+}
+
+.category_kensaku {
+  border-bottom: solid #D3D3D3;
+  border-width: 0.2px;
+  width: 65%;
+  text-align: start;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .main_categories span,
@@ -471,22 +520,15 @@ tr:nth-child(even) {
 .accordion-container {
   position: relative;
   width: 100%;
-  border: 1px solid #0079c1;
   border-top: none;
   outline: 0;
   cursor: pointer
 }
 
 .accordion-container .accordion-title {
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 0.625em 0.625em 0.625em 2em;
-  font-size: 1.25em;
-  font-weight: normal;
-  color: #fff;
-  background: #000;
-  cursor: pointer;
+  border-bottom: solid #D3D3D3;
+  border-width: 0.2px;
+  width: 80%;
 }
 
 .accordion-container .accordion-title:hover,
@@ -528,9 +570,9 @@ tr:nth-child(even) {
 }
 
 .search-waku {
-  border: solid #D3D3D3;
+  border-bottom: solid #D3D3D3;
   border-width: 0.2px;
-  width: 80%;
+  width: 135px;
 
 }
 
@@ -547,8 +589,8 @@ tr:nth-child(even) {
   display: block;
   width: 8px;
   height: 8px;
-  border-top: solid 2px #fff;
-  border-right: solid 2px #fff;
+  border-top: solid 2px #000;
+  border-right: solid 2px #000;
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
 }

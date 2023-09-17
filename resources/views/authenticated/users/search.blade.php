@@ -82,7 +82,7 @@
             <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
           </div>
           <div>
-            <label>権限</label>
+            <label>権限</label><br>
             <select name="role" form="userSearchRequest" class="engineer search-s">
               <option selected disabled>----</option>
               <option value="1">教師(国語)</option>
